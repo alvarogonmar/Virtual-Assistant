@@ -45,6 +45,3 @@ python virtual_assistant.py
 - **Natural Responses**: Susan uses `pyttsx3` to respond to user commands with a friendly and natural-sounding voice.
 - **Web Search and Entertainment**: Easily open websites like YouTube, Google, Netflix, and Max. You can also play music directly from YouTube or search the web for information.
 - **Jokes and Weather**: Susan can tell you jokes or update you on the weather in your city with the OpenWeatherMap API.
-
-
-

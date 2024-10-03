@@ -10,7 +10,7 @@ import requests
 from dotenv import load_dotenv
 import os
 #VOICE
-id1 = 'HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Speech\Voices\Tokens\TTS_MS_EN-US_ZIRA_11.0'
+id1 = 'com.apple.voice.compact.en-US.Samantha'
 
 #API KEY OpenWeatherMap
 load_dotenv()
@@ -213,14 +213,6 @@ def ask_things():
         elif 'joke' in order:
             talk(pyjokes.get_joke('en'))
             continue
-        elif 'tell me the weather in' in order or 'what\'s the weather in':
-            try:
-                city = order.replace('tell me the weather in', '').strip()
-                weather_info = ask_weather(city)
-                talk(weather_info)
-            except:
-                talk('Sorry, I could not retrieve the weather information.')
-            continue
         elif 'open max' in order or 'open hbo max' in order:
             talk('Sure, I am opening max')
             webbrowser.open('https://play.max.com/')
@@ -231,7 +223,19 @@ def ask_things():
             continue
         elif 'bye' in order:
             talk('My pleasure, Im here to help you')
-            break
+            break   
+        elif 'hi' in order or 'hello' in order:
+            talk('Hi, Im here to help you')   
+            continue  
+        elif 'tell me the weather in' in order or 'what\'s the weather in' in order:
+            try:
+                city = order.replace('tell me the weather in', '').strip()
+                weather_info = ask_weather(city)
+                talk(weather_info)
+            except:
+                talk('Sorry, I could not retrieve the weather information.')
+            continue
+
 
 
 ask_things()
